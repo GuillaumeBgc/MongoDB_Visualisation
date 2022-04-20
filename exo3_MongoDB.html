@@ -1,0 +1,85 @@
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+  
+  <head>
+    
+      <meta charset="utf-8">
+      <title>Bokeh Plot</title>
+      
+      
+        
+          
+        
+        
+          
+        <script type="text/javascript" src="https://cdn.bokeh.org/bokeh/release/bokeh-2.4.2.min.js"></script>
+        <script type="text/javascript">
+            Bokeh.set_log_level("info");
+        </script>
+        
+      
+      
+    
+  </head>
+  
+  
+  <body>
+    
+      
+        
+          
+          
+            
+              <div class="bk-root" id="a897be9f-f7f6-4428-b87f-1d91bf3ff802" data-root-id="1003"></div>
+            
+          
+        
+      
+      
+        <script type="application/json" id="1225">
+          {"6dbfe19a-06c7-4004-a2ea-68d91cffac0b":{"defs":[],"roots":{"references":[{"attributes":{},"id":"1036","type":"UnionRenderers"},{"attributes":{},"id":"1037","type":"Selection"},{"attributes":{"axis":{"id":"1014"},"coordinates":null,"grid_line_color":null,"group":null,"ticker":null},"id":"1016","type":"Grid"},{"attributes":{"coordinates":null,"formatter":{"id":"1034"},"group":null,"major_label_policy":{"id":"1035"},"ticker":{"id":"1015"}},"id":"1014","type":"CategoricalAxis"},{"attributes":{},"id":"1008","type":"DataRange1d"},{"attributes":{},"id":"1015","type":"CategoricalTicker"},{"attributes":{"factors":["Bronx","Brooklyn","Manhattan","Queens","Staten Island"],"range_padding":0.1},"id":"1006","type":"FactorRange"},{"attributes":{"fill_alpha":{"value":0.1},"fill_color":{"value":"springgreen"},"hatch_alpha":{"value":0.1},"hatch_color":{"value":"springgreen"},"line_alpha":{"value":0.1},"line_color":{"value":"springgreen"},"top":{"field":"A"},"width":{"value":0.2},"x":{"field":"quartier","transform":{"id":"1022"}}},"id":"1025","type":"VBar"},{"attributes":{"axis":{"id":"1017"},"coordinates":null,"dimension":1,"group":null,"ticker":null},"id":"1020","type":"Grid"},{"attributes":{},"id":"1021","type":"Toolbar"},{"attributes":{"below":[{"id":"1014"}],"center":[{"id":"1016"},{"id":"1020"},{"id":"1038"}],"left":[{"id":"1017"}],"renderers":[{"id":"1027"},{"id":"1045"},{"id":"1062"},{"id":"1079"},{"id":"1096"}],"title":{"id":"1004"},"toolbar":{"id":"1021"},"toolbar_location":null,"x_range":{"id":"1006"},"x_scale":{"id":"1010"},"y_range":{"id":"1008"},"y_scale":{"id":"1012"}},"id":"1003","subtype":"Figure","type":"Plot"},{"attributes":{},"id":"1018","type":"BasicTicker"},{"attributes":{"fill_color":{"value":"springgreen"},"hatch_color":{"value":"springgreen"},"line_color":{"value":"springgreen"},"top":{"field":"A"},"width":{"value":0.2},"x":{"field":"quartier","transform":{"id":"1022"}}},"id":"1024","type":"VBar"},{"attributes":{"coordinates":null,"data_source":{"id":"1002"},"glyph":{"id":"1024"},"group":null,"hover_glyph":null,"muted_glyph":{"id":"1026"},"nonselection_glyph":{"id":"1025"},"view":{"id":"1028"}},"id":"1027","type":"GlyphRenderer"},{"attributes":{},"id":"1012","type":"LinearScale"},{"attributes":{"fill_alpha":{"value":0.1},"fill_color":{"value":"cornflowerblue"},"hatch_alpha":{"value":0.1},"hatch_color":{"value":"cornflowerblue"},"line_alpha":{"value":0.1},"line_color":{"value":"cornflowerblue"},"top":{"field":"B"},"width":{"value":0.2},"x":{"field":"quartier","transform":{"id":"1040"}}},"id":"1043","type":"VBar"},{"attributes":{"coordinates":null,"formatter":{"id":"1031"},"group":null,"major_label_policy":{"id":"1032"},"ticker":{"id":"1018"}},"id":"1017","type":"LinearAxis"},{"attributes":{"fill_alpha":{"value":0.1},"fill_color":{"value":"red"},"hatch_alpha":{"value":0.1},"hatch_color":{"value":"red"},"line_alpha":{"value":0.1},"line_color":{"value":"red"},"top":{"field":"Z"},"width":{"value":0.2},"x":{"field":"quartier","transform":{"id":"1091"}}},"id":"1094","type":"VBar"},{"attributes":{},"id":"1031","type":"BasicTickFormatter"},{"attributes":{},"id":"1010","type":"CategoricalScale"},{"attributes":{"fill_color":{"value":"red"},"hatch_color":{"value":"red"},"line_color":{"value":"red"},"top":{"field":"Z"},"width":{"value":0.2},"x":{"field":"quartier","transform":{"id":"1091"}}},"id":"1093","type":"VBar"},{"attributes":{"range":{"id":"1006"},"value":-0.25},"id":"1040","type":"Dodge"},{"attributes":{"range":{"id":"1006"},"value":0.25},"id":"1074","type":"Dodge"},{"attributes":{"coordinates":null,"data_source":{"id":"1002"},"glyph":{"id":"1093"},"group":null,"hover_glyph":null,"muted_glyph":{"id":"1095"},"nonselection_glyph":{"id":"1094"},"view":{"id":"1097"}},"id":"1096","type":"GlyphRenderer"},{"attributes":{"fill_color":{"value":"cornflowerblue"},"hatch_color":{"value":"cornflowerblue"},"line_color":{"value":"cornflowerblue"},"top":{"field":"B"},"width":{"value":0.2},"x":{"field":"quartier","transform":{"id":"1040"}}},"id":"1042","type":"VBar"},{"attributes":{"fill_alpha":{"value":0.1},"fill_color":{"value":"burlywood"},"hatch_alpha":{"value":0.1},"hatch_color":{"value":"burlywood"},"line_alpha":{"value":0.1},"line_color":{"value":"burlywood"},"top":{"field":"C"},"width":{"value":0.2},"x":{"field":"quartier","transform":{"id":"1057"}}},"id":"1060","type":"VBar"},{"attributes":{"fill_color":{"value":"coral"},"hatch_color":{"value":"coral"},"line_color":{"value":"coral"},"top":{"field":"P"},"width":{"value":0.2},"x":{"field":"quartier","transform":{"id":"1074"}}},"id":"1076","type":"VBar"},{"attributes":{"coordinates":null,"group":null,"items":[{"id":"1039"},{"id":"1056"},{"id":"1073"},{"id":"1090"},{"id":"1107"}],"orientation":"horizontal"},"id":"1038","type":"Legend"},{"attributes":{"coordinates":null,"data_source":{"id":"1002"},"glyph":{"id":"1042"},"group":null,"hover_glyph":null,"muted_glyph":{"id":"1044"},"nonselection_glyph":{"id":"1043"},"view":{"id":"1046"}},"id":"1045","type":"GlyphRenderer"},{"attributes":{"coordinates":null,"data_source":{"id":"1002"},"glyph":{"id":"1076"},"group":null,"hover_glyph":null,"muted_glyph":{"id":"1078"},"nonselection_glyph":{"id":"1077"},"view":{"id":"1080"}},"id":"1079","type":"GlyphRenderer"},{"attributes":{"fill_color":{"value":"burlywood"},"hatch_color":{"value":"burlywood"},"line_color":{"value":"burlywood"},"top":{"field":"C"},"width":{"value":0.2},"x":{"field":"quartier","transform":{"id":"1057"}}},"id":"1059","type":"VBar"},{"attributes":{"fill_alpha":{"value":0.2},"fill_color":{"value":"red"},"hatch_alpha":{"value":0.2},"hatch_color":{"value":"red"},"line_alpha":{"value":0.2},"line_color":{"value":"red"},"top":{"field":"Z"},"width":{"value":0.2},"x":{"field":"quartier","transform":{"id":"1091"}}},"id":"1095","type":"VBar"},{"attributes":{},"id":"1032","type":"AllLabels"},{"attributes":{"label":{"value":"Z"},"renderers":[{"id":"1096"}]},"id":"1107","type":"LegendItem"},{"attributes":{"label":{"value":"B"},"renderers":[{"id":"1045"}]},"id":"1056","type":"LegendItem"},{"attributes":{"label":{"value":"P"},"renderers":[{"id":"1079"}]},"id":"1090","type":"LegendItem"},{"attributes":{"coordinates":null,"group":null,"text":"Pourcentage des notes en fonction du quartier"},"id":"1004","type":"Title"},{"attributes":{"coordinates":null,"data_source":{"id":"1002"},"glyph":{"id":"1059"},"group":null,"hover_glyph":null,"muted_glyph":{"id":"1061"},"nonselection_glyph":{"id":"1060"},"view":{"id":"1063"}},"id":"1062","type":"GlyphRenderer"},{"attributes":{"fill_alpha":{"value":0.2},"fill_color":{"value":"cornflowerblue"},"hatch_alpha":{"value":0.2},"hatch_color":{"value":"cornflowerblue"},"line_alpha":{"value":0.2},"line_color":{"value":"cornflowerblue"},"top":{"field":"B"},"width":{"value":0.2},"x":{"field":"quartier","transform":{"id":"1040"}}},"id":"1044","type":"VBar"},{"attributes":{"fill_alpha":{"value":0.2},"fill_color":{"value":"coral"},"hatch_alpha":{"value":0.2},"hatch_color":{"value":"coral"},"line_alpha":{"value":0.2},"line_color":{"value":"coral"},"top":{"field":"P"},"width":{"value":0.2},"x":{"field":"quartier","transform":{"id":"1074"}}},"id":"1078","type":"VBar"},{"attributes":{"source":{"id":"1002"}},"id":"1097","type":"CDSView"},{"attributes":{},"id":"1034","type":"CategoricalTickFormatter"},{"attributes":{"data":{"A":{"__ndarray__":"b684g/zw6T/hZmCEo2jpP/0HRjsh8Ok/wSZDPwRY6T/spZ8xWYXqPw==","dtype":"float64","order":"little","shape":[5]},"B":{"__ndarray__":"U5gNzqZuwD/TA8GrPezBPwGQEO/RlsA/G6H5+7nYwj9nHtoYZdm/Pw==","dtype":"float64","order":"little","shape":[5]},"C":{"__ndarray__":"O9q8T3HJoD/1peCXGAijP87z8mJSY6E/7fu1lA1MoD8Ifq8mUWGaPw==","dtype":"float64","order":"little","shape":[5]},"P":{"__ndarray__":"3ZpM0LTnkD8mwNQOKBmQP1pYUwWEJ4Y/XrPA+LRCiz9eNmT+K3N4Pw==","dtype":"float64","order":"little","shape":[5]},"Z":{"__ndarray__":"WwBucUPhhz9w8qmukcCKPyDZVazE1Y4/dM0BkjIAkD+SerSEUuKOPw==","dtype":"float64","order":"little","shape":[5]},"index":[0,1,2,3,4],"quartier":["Bronx","Brooklyn","Manhattan","Queens","Staten Island"]},"selected":{"id":"1037"},"selection_policy":{"id":"1036"}},"id":"1002","type":"ColumnDataSource"},{"attributes":{"source":{"id":"1002"}},"id":"1046","type":"CDSView"},{"attributes":{"source":{"id":"1002"}},"id":"1080","type":"CDSView"},{"attributes":{"fill_alpha":{"value":0.2},"fill_color":{"value":"burlywood"},"hatch_alpha":{"value":0.2},"hatch_color":{"value":"burlywood"},"line_alpha":{"value":0.2},"line_color":{"value":"burlywood"},"top":{"field":"C"},"width":{"value":0.2},"x":{"field":"quartier","transform":{"id":"1057"}}},"id":"1061","type":"VBar"},{"attributes":{"label":{"value":"A"},"renderers":[{"id":"1027"}]},"id":"1039","type":"LegendItem"},{"attributes":{"label":{"value":"C"},"renderers":[{"id":"1062"}]},"id":"1073","type":"LegendItem"},{"attributes":{"range":{"id":"1006"},"value":-0.5},"id":"1022","type":"Dodge"},{"attributes":{"source":{"id":"1002"}},"id":"1063","type":"CDSView"},{"attributes":{"range":{"id":"1006"}},"id":"1057","type":"Dodge"},{"attributes":{"range":{"id":"1006"},"value":0.5},"id":"1091","type":"Dodge"},{"attributes":{},"id":"1035","type":"AllLabels"},{"attributes":{"fill_alpha":{"value":0.1},"fill_color":{"value":"coral"},"hatch_alpha":{"value":0.1},"hatch_color":{"value":"coral"},"line_alpha":{"value":0.1},"line_color":{"value":"coral"},"top":{"field":"P"},"width":{"value":0.2},"x":{"field":"quartier","transform":{"id":"1074"}}},"id":"1077","type":"VBar"},{"attributes":{"fill_alpha":{"value":0.2},"fill_color":{"value":"springgreen"},"hatch_alpha":{"value":0.2},"hatch_color":{"value":"springgreen"},"line_alpha":{"value":0.2},"line_color":{"value":"springgreen"},"top":{"field":"A"},"width":{"value":0.2},"x":{"field":"quartier","transform":{"id":"1022"}}},"id":"1026","type":"VBar"},{"attributes":{"source":{"id":"1002"}},"id":"1028","type":"CDSView"}],"root_ids":["1003"]},"title":"Bokeh Application","version":"2.4.2"}}
+        </script>
+        <script type="text/javascript">
+          (function() {
+            const fn = function() {
+              Bokeh.safely(function() {
+                (function(root) {
+                  function embed_document(root) {
+                    
+                  const docs_json = document.getElementById('1225').textContent;
+                  const render_items = [{"docid":"6dbfe19a-06c7-4004-a2ea-68d91cffac0b","root_ids":["1003"],"roots":{"1003":"a897be9f-f7f6-4428-b87f-1d91bf3ff802"}}];
+                  root.Bokeh.embed.embed_items(docs_json, render_items);
+                
+                  }
+                  if (root.Bokeh !== undefined) {
+                    embed_document(root);
+                  } else {
+                    let attempts = 0;
+                    const timer = setInterval(function(root) {
+                      if (root.Bokeh !== undefined) {
+                        clearInterval(timer);
+                        embed_document(root);
+                      } else {
+                        attempts++;
+                        if (attempts > 100) {
+                          clearInterval(timer);
+                          console.log("Bokeh: ERROR: Unable to run BokehJS code because BokehJS library is missing");
+                        }
+                      }
+                    }, 10, root)
+                  }
+                })(window);
+              });
+            };
+            if (document.readyState != "loading") fn();
+            else document.addEventListener("DOMContentLoaded", fn);
+          })();
+        </script>
+    
+  </body>
+  
+</html>
