@@ -2,7 +2,7 @@
 from pymongo import MongoClient
 import pymongo
 
-# Connexion à la base publications hébergée sur le serveur MongoDB Atlas
+# Connexion à la base "publications" hébergée sur le serveur MongoDB Atlas
 db_uri = "mongodb+srv://etudiant:ur2@clusterm1.0rm7t.mongodb.net/"
 client = MongoClient(db_uri)
 db_name = "publications" 
