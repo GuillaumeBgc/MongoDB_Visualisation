@@ -8,8 +8,9 @@ from bokeh.plotting import figure, from_networkx
 from bokeh.io import output_file, show
 from bokeh.models import (BoxZoomTool, Circle, HoverTool,
                           MultiLine, Plot, Range1d, ResetTool)
-from bokeh.palettes import Spectral4
+from bokeh.layouts import row, column
 from bokeh.palettes import Viridis
+from bokeh.models import Div
 
 # Connexion à la base "publications" hébergée sur le serveur MongoDB Atlas
 db_uri = "mongodb+srv://etudiant:ur2@clusterm1.0rm7t.mongodb.net/"
@@ -129,6 +130,8 @@ print(list(g.nodes()))
 node_hover_tool = HoverTool(tooltips=[ ("Auteur", "@index")])
 plot.add_tools(node_hover_tool, BoxZoomTool(), ResetTool())
 
-
+div = Div(text="""
+<a href="index.html ">Accueil</a>""")
+layout = column(div,plot)
 output_file("interactive_graphs.html")
-show(plot)
+show(layout)

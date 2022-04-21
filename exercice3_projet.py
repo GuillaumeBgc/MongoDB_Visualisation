@@ -5,7 +5,8 @@ import pandas as pd
 from bokeh.models import ColumnDataSource
 from bokeh.plotting import figure, show, output_file
 from bokeh.transform import dodge
-
+from bokeh.layouts import column
+from bokeh.models import Div
 
 # Connexion à la base "food" hébergée sur le serveur MongoDB Atlas
 db_uri = "mongodb+srv://etudiant:ur2@clusterm1.0rm7t.mongodb.net/"
@@ -95,7 +96,7 @@ source = ColumnDataSource(data=df_prop)
 
 # Figure
 p = figure(x_range=df_prop.quartier, title="Pourcentage des notes en fonction du quartier",
-           height=600, toolbar_location=None, tools="")
+           height=600, toolbar_location=None, tools="", width=1000)
 
 p.vbar(x=dodge('quartier', -0.5, range=p.x_range), top='A', source=source,
        width=0.2, color="springgreen", legend_label="A")
@@ -117,9 +118,11 @@ p.xgrid.grid_line_color = None
 p.legend.location = "top_right"
 p.legend.orientation = "horizontal"
 
+div = Div(text="""
+<a href="index.html ">Accueil</a>""")
+layout = column(div,p)
 output_file("exo3_MongoDB.html")
-
-show(p) 
+show(layout) 
 
 
 

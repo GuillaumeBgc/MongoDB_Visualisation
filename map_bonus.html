@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<style>body{background-color:white;}</style>
+<script src="lib/htmlwidgets-1.5.4/htmlwidgets.js"></script>
+<script src="lib/jquery-1.12.4/jquery.min.js"></script>
+<link href="lib/leaflet-1.3.1/leaflet.css" rel="stylesheet" />
+<script src="lib/leaflet-1.3.1/leaflet.js"></script>
+<link href="lib/leafletfix-1.0.0/leafletfix.css" rel="stylesheet" />
+<script src="lib/proj4-2.6.2/proj4.min.js"></script>
+<script src="lib/Proj4Leaflet-1.0.1/proj4leaflet.js"></script>
+<link href="lib/rstudio_leaflet-1.3.1/rstudio_leaflet.css" rel="stylesheet" />
+<script src="lib/leaflet-binding-2.1.1/leaflet.js"></script>
+
+</head>
+<body>
+<a href="index.html">accueil</a>
+<a href="map.html">cartes des centres</a>
+<div style="font-family: sans-serif;text-align:center;text-transform:uppercase;">
+  <h1>centres de vaccination situés à moins de 50km de Rennes</h1>
+</div>
+<br/>
+<div style="font-family: sans-serif;text-align:left;text-transform:uppercase;">
+  <h2>vaccinations pour première dose sur la période 1er janvier au 1er juin</h2>
+</div>
+<div>
+  <div id="htmlwidget-9562397f2ef1b2983f6f" style="width:100%;height:400px;" class="leaflet html-widget"></div>
+  <script type="application/json" data-for="htmlwidget-9562397f2ef1b2983f6f">{"x":{"options":{"crs":{"crsClass":"L.CRS.EPSG3857","code":null,"proj4def":null,"projectedBounds":null,"options":{}}},"calls":[{"method":"addTiles","args":["https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",null,null,{"minZoom":0,"maxZoom":18,"tileSize":256,"subdomains":"abc","errorTileUrl":"","tms":false,"noWrap":false,"zoomOffset":0,"zoomReverse":false,"opacity":1,"zIndex":1,"detectRetina":false,"attribution":"&copy; <a href=\"https://openstreetmap.org\">OpenStreetMap<\/a> contributors, <a href=\"https://creativecommons.org/licenses/by-sa/2.0/\">CC-BY-SA<\/a>"}]},{"method":"addCircleMarkers","args":[[48.3344,48.0552,48.1181,48.1104,47.9642,47.718],[-1.17127,-1.73228,-1.70075,-1.65391,-1.79528,-1.38837],5,null,null,{"interactive":true,"className":"","stroke":true,"color":["green","red","orange","orange","red","green"],"weight":5,"opacity":0.5,"fill":true,"fillColor":["green","red","orange","orange","red","green"],"fillOpacity":1},null,null,["FOUGERES - Espace Aumaillerie<br/>Nombre de 1res doses disponibles : <br/>306","BRUZ - CDV Parc Expo<br/>Nombre de 1res doses disponibles : <br/>50","RENNES - Grand centre stade Robert Poirier<br/>Nombre de 1res doses disponibles : <br/>113","RENNES - Centre Plaine de Baud (SDIS)<br/>Nombre de 1res doses disponibles : <br/>113","GUICHEN - Espace Galatée<br/>Nombre de 1res doses disponibles : <br/>52","Centre de Vaccination COVID - CHATEAUBRIANT<br/>Nombre de 1res doses disponibles : <br/>289"],null,null,{"interactive":false,"permanent":false,"direction":"auto","opacity":1,"offset":[0,0],"textsize":"10px","textOnly":false,"className":"","sticky":true},null]}],"limits":{"lat":[47.718,48.3344],"lng":[-1.79528,-1.17127]}},"evals":[],"jsHooks":[]}</script>
+</div>
+</body>
+</html>
