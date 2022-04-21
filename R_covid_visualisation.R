@@ -161,6 +161,8 @@ map_bonus <- leaflet(data = data.bonus) %>%
                    radius=5, fillOpacity=1, color=couleurs)
 
 
+# Page web
+
 htmlwidgets::saveWidget(map_bonus, file = "map_bonus.html")
 
 doc1 <- htmltools::tagList(
