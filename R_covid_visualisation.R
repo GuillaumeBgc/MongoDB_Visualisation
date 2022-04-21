@@ -10,7 +10,7 @@ library("mongolite")
 library(leaflet)
 
 
-# Récupération des données
+# R?cup?ration des donn?es
 url="mongodb://etudiant:ur2@clusterm1-shard-00-00.0rm7t.mongodb.net:27017,clusterm1-shard-00-01.0rm7t.mongodb.net:27017,clusterm1-shard-00-02.0rm7t.mongodb.net:27017/?ssl=true&replicaSet=atlas-l4xi61-shard-0"
 
 mdb = mongo(collection="dump_Jan2022", db="doctolib",
@@ -50,18 +50,18 @@ qBonus = '[
 "coord":{"$max":"$location.coordinates"}}}
 ]'
 
-data.bonus <- mdb$aggregate
+data.bonus <- mdb$aggregate(qBonus)
 
 
 ##### Question principale #####
 
-### Modification du jeu de données ### 
+### Modification du jeu de donn?es ### 
 
 # Renommage de la colonne '_id'
 colnames(data.nb_rdv)[1] <- 'centre'
 
 
-# Séparation en deux de la colonne coord
+# S?paration en deux de la colonne coord
 
 coord <- data.nb_rdv$coord
 long <- numeric(length(coord))
@@ -72,12 +72,12 @@ for (i in 1:length(coord)){
   lat[i] <- coord[[i]][2]
 }
 
-# On les ajoute au jeu de données
+# On les ajoute au jeu de donn?es
 data.nb_rdv$long <- long
 data.nb_rdv$lat <- lat
 
 
-# Répartition de la variable 'nb' en 3 classes (couleurs) en fixant des seuils 
+# R?partition de la variable 'nb' en 3 classes (couleurs) en fixant des seuils 
 # qui nous semblent judicieux :
 
 couleurs <- numeric(nrow(data.nb_rdv))
@@ -93,29 +93,30 @@ for (i in 1:nrow(data.nb_rdv)){
   }
 }
 
-# On l'ajoute au jeu de données
+# On l'ajoute au jeu de donn?es
 data.nb_rdv$couleurs <- couleurs
 
 
 ### Cartographie ### 
 
-leaflet(data = data.nb_rdv) %>% 
+map <- leaflet(data = data.nb_rdv) %>% 
   addTiles() %>%
   addCircleMarkers(~long, ~lat, 
                    popup = ~paste(centre, "Nombre de doses disponibles : ", as.character(nb), sep="<br/>"),
                    radius=5, fillOpacity=1, color=couleurs)
 
+htmlwidgets::saveWidget(map, file = "map.html")
 
 
 ##### Bonus #####
 
-### Modification du jeu de données ### 
+### Modification du jeu de donn?es ### 
 
 # Renommage de la colonne '_id'
 colnames(data.bonus)[1] <- 'centre'
 
 
-# Séparation en deux de la colonne coord
+# S?paration en deux de la colonne coord
 
 coord <- data.bonus$coord
 long <- numeric(length(coord))
@@ -126,12 +127,12 @@ for (i in 1:length(coord)){
   lat[i] <- coord[[i]][2]
 }
 
-# On les ajoute au jeu de données
+# On les ajoute au jeu de donn?es
 data.bonus$long <- long
 data.bonus$lat <- lat
 
 
-# Répartition de la variable 'nb' en 3 classes (couleurs) en fixant des seuils 
+# R?partition de la variable 'nb' en 3 classes (couleurs) en fixant des seuils 
 # qui nous semblent judicieux :
 
 couleurs <- numeric(nrow(data.bonus))
@@ -147,19 +148,39 @@ for (i in 1:nrow(data.bonus)){
   }
 }
 
-# On l'ajoute au jeu de données
+# On l'ajoute au jeu de donn?es
 data.bonus$couleurs <- couleurs
 
 
 ### Cartographie ### 
 
-leaflet(data = data.bonus) %>% 
+map_bonus <- leaflet(data = data.bonus) %>% 
   addTiles() %>%
   addCircleMarkers(~long, ~lat, 
-                   popup = ~paste(centre, "Nombre de 1ères doses disponibles : ", as.character(nb), sep="<br/>"),
+                   popup = ~paste(centre, "Nombre de 1res doses disponibles : ", as.character(nb), sep="<br/>"),
                    radius=5, fillOpacity=1, color=couleurs)
 
 
+htmlwidgets::saveWidget(map_bonus, file = "map_bonus.html")
 
+doc1 <- htmltools::tagList(
+  a(href="index.html", "accueil"),
+  a(href="map_bonus.html", "premiÃ¨res doses"),
+  div(h1("centres de vaccination situÃ©s Ã  moins de 50km de Rennes"),style = "font-family: sans-serif;text-align:center;text-transform:uppercase;"),
+  br(),
+  div(h2("ouverts sur la pÃ©riode du 26 au 29 janvier 2022 "),style = "font-family: sans-serif;text-align:left;text-transform:uppercase;"),
+  div(map)
+)
 
+htmltools::save_html(html = doc1, file = "map.html")
 
+doc2 <- htmltools::tagList(
+  a(href="index.html", "accueil"),
+  a(href="map.html", "cartes des centres"),
+  div(h1("centres de vaccination situÃ©s Ã  moins de 50km de Rennes"),style = "font-family: sans-serif;text-align:center;text-transform:uppercase;"),
+  br(),
+  div(h2("vaccinations pour premiÃ¨re dose sur la pÃ©riode 1er janvier au 1er juin"),style = "font-family: sans-serif;text-align:left;text-transform:uppercase;"),
+  div(map_bonus)
+)
+
+htmltools::save_html(html = doc2, file = "map_bonus.html")
