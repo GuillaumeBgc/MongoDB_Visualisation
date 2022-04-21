@@ -36,16 +36,10 @@ agg_result1 = db.NYfood.aggregate([
             ])
 
 ls1=[]
-<<<<<<< HEAD
-for i in agg_result:
-    ls1.append(i)
-print(ls1)
-=======
 for i in agg_result1:
     ls1.append(i)
 print(ls1)
 
->>>>>>> d4e669ae6a10b3f17480346c60075bf782c3d018
 
 # On aimerait savoir si les note attribuées dépendent du quartiers dans lesquels ils se trouvent.
 # Ainsi, pour chaque quartier, on souhaite récupérer le nombre de fois que chaque note apparaît.
@@ -62,12 +56,6 @@ agg_result2 = db.NYfood.aggregate([
                 {"$sort": {"_id.quartier": 1, "nb": -1}}  
             ])
 
-<<<<<<< HEAD
-ls=[]
-for i in agg_result2:
-    ls.append(i)
-print(ls)
-=======
 ls2=[]
 for i in agg_result2:
     ls2.append(i)
@@ -138,4 +126,3 @@ show(p)
 
 
 
->>>>>>> d4e669ae6a10b3f17480346c60075bf782c3d018
