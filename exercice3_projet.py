@@ -1,6 +1,11 @@
 
+
 from pymongo import MongoClient
-import pymongo
+import pandas as pd
+from bokeh.models import ColumnDataSource
+from bokeh.plotting import figure, show, output_file
+from bokeh.transform import dodge
+
 
 # Connexion à la base "food" hébergée sur le serveur MongoDB Atlas
 db_uri = "mongodb+srv://etudiant:ur2@clusterm1.0rm7t.mongodb.net/"
@@ -21,7 +26,7 @@ print(coll.index_information())
 # Pour cela, nous devons compter le nombre de fois qu'apparaît chaque modalité de "cuisine".
 # Nous ne conservons que les types de cuisine comportant au moins 700 restaurants.
 
-agg_result = db.NYfood.aggregate([
+agg_result1 = db.NYfood.aggregate([
                 {"$group": {"_id": "$cuisine", 
                             "nb_restos": {"$sum": 1}
                             }
@@ -31,9 +36,16 @@ agg_result = db.NYfood.aggregate([
             ])
 
 ls1=[]
+<<<<<<< HEAD
 for i in agg_result:
     ls1.append(i)
 print(ls1)
+=======
+for i in agg_result1:
+    ls1.append(i)
+print(ls1)
+
+>>>>>>> d4e669ae6a10b3f17480346c60075bf782c3d018
 
 # On aimerait savoir si les note attribuées dépendent du quartiers dans lesquels ils se trouvent.
 # Ainsi, pour chaque quartier, on souhaite récupérer le nombre de fois que chaque note apparaît.
@@ -50,7 +62,80 @@ agg_result2 = db.NYfood.aggregate([
                 {"$sort": {"_id.quartier": 1, "nb": -1}}  
             ])
 
+<<<<<<< HEAD
 ls=[]
 for i in agg_result2:
     ls.append(i)
 print(ls)
+=======
+ls2=[]
+for i in agg_result2:
+    ls2.append(i)
+print(ls2)
+
+
+# Diagramme en barres
+
+# On commence par mettre le résultat de l'aggrégation dans un dataframe
+
+df1 = pd.DataFrame(ls2)
+df1 = pd.DataFrame(df1['_id'].values.tolist(), index=df1.index)
+
+df2 = pd.DataFrame(ls2)
+
+df = pd.concat([df1, df2], axis=1)
+df.pop('_id')
+
+df_ok = df.pivot('quartier','note')
+
+df_ok.columns = ['A', 'B', 'C', 'P', 'Z']
+
+df_ok['quartier'] = list(df_ok.index)
+df_ok.index = list(range(0, len(df_ok)))
+
+# Pour gommer l'effet taille, on prend la proportion de chaque note
+# parmi les notes attribuées au quartier, plutôt que l'effectif des notes.
+df_prop = df_ok.copy(deep=True)
+df_prop["somme"] = df_prop.sum(axis=1)
+df_prop = df_prop.loc[:,"A":"Z"].div(df_prop["somme"], axis=0)
+df_prop['quartier'] = df_ok['quartier']
+
+
+# On convertit notre datafame en ColumnDataSource
+source = ColumnDataSource(data=df_prop)
+
+
+# Figure
+p = figure(x_range=df_prop.quartier, title="Pourcentage des notes en fonction du quartier",
+           height=600, toolbar_location=None, tools="")
+
+p.vbar(x=dodge('quartier', -0.5, range=p.x_range), top='A', source=source,
+       width=0.2, color="springgreen", legend_label="A")
+
+p.vbar(x=dodge('quartier', -0.25,  range=p.x_range), top='B', source=source,
+       width=0.2, color="cornflowerblue", legend_label="B")
+
+p.vbar(x=dodge('quartier',  0, range=p.x_range), top='C', source=source,
+       width=0.2, color="burlywood", legend_label="C")
+
+p.vbar(x=dodge('quartier',  0.25, range=p.x_range), top='P', source=source,
+       width=0.2, color="coral", legend_label="P")
+
+p.vbar(x=dodge('quartier',  0.5, range=p.x_range), top='Z', source=source,
+       width=0.2, color="red", legend_label="Z")
+
+p.x_range.range_padding = 0.1
+p.xgrid.grid_line_color = None
+p.legend.location = "top_right"
+p.legend.orientation = "horizontal"
+
+output_file("exo3_MongoDB.html")
+
+show(p) 
+
+
+
+
+
+
+>>>>>>> d4e669ae6a10b3f17480346c60075bf782c3d018
