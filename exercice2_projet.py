@@ -1,4 +1,5 @@
 
+from cProfile import label
 from turtle import width
 from pymongo import MongoClient
 import pymongo
@@ -126,12 +127,22 @@ graph_renderer.edge_renderer.data_source.data["line_width"] = [g.get_edge_data(a
 graph_renderer.edge_renderer.glyph.line_width = {'field': 'line_width'}
 plot.renderers.append(graph_renderer)
 
+#Création de la légende
+plot.circle(20,30, color=Viridis[10][0], legend_label="moins de 12 articles écrits")
+plot.circle(30,20, color=Viridis[10][9], legend_label="entre 12 et 16 articles écrits")
+plot.circle(30,20, color=Viridis[10][4], legend_label="plus de 16 articles écrits")
+plot.xgrid.grid_line_color = None
+plot.legend.location = "bottom_right"
+plot.legend.orientation = "horizontal"
+
 print(list(g.nodes()))
 node_hover_tool = HoverTool(tooltips=[ ("Auteur", "@index")])
 plot.add_tools(node_hover_tool, BoxZoomTool(), ResetTool())
 
 div = Div(text="""
 <a href="index.html ">Accueil</a>""")
+
+
 layout = column(div,plot)
 output_file("interactive_graphs.html")
 show(layout)
