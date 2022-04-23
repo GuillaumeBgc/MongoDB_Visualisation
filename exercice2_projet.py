@@ -121,7 +121,7 @@ nx.set_node_attributes(g, node_color, 'node_color')
 
 graph_renderer = from_networkx(g, nx.spring_layout, scale=1, center=(0, 0))
 graph_renderer.node_renderer.glyph = Circle(size=15, fill_color='node_color')
-plot = figure(title="Articles links between co-authors", x_range=(-1.1,1.1), y_range=(-1.1,1.1),
+plot = figure(title="Liens entre les auteurs", x_range=(-1.1,1.1), y_range=(-1.1,1.1),
               tools="", toolbar_location=None)
 graph_renderer.edge_renderer.data_source.data["line_width"] = [g.get_edge_data(a,b)['weight'] for a, b in g.edges()]
 graph_renderer.edge_renderer.glyph.line_width = {'field': 'line_width'}
