@@ -23,6 +23,7 @@ coll = db[coll_name]
 print(coll.index_information())
 
 
+# Notre première idée de visualisation était la suivante :
 # Nous souhaitons représenter un diagramme en barres pour visualiser les types de restaurants.
 # Pour cela, nous devons compter le nombre de fois qu'apparaît chaque modalité de "cuisine".
 # Nous ne conservons que les types de cuisine comportant au moins 700 restaurants.
@@ -42,7 +43,12 @@ for i in agg_result1:
 print(ls1)
 
 
-# On aimerait savoir si les note attribuées dépendent du quartiers dans lesquels ils se trouvent.
+# Toutefois, nous avons jugé que nous pouvions proposer une visualisation plus complexe que cette dernière. 
+# Nous n'avons donc pas utilisé les données recueillies par cette requête MongoDB pour notre dernier graphique.
+
+
+# Idée de visualisation retenue :
+# On aimerait savoir si les notes attribuées aux restaurants dépendent du quartier dans lesquels ils se trouvent.
 # Ainsi, pour chaque quartier, on souhaite récupérer le nombre de fois que chaque note apparaît.
 # On ne prend pas en compte les quartiers et les notes qui ne sont pas renseignés.
 
