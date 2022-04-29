@@ -31,3 +31,4 @@ jobs:
         with:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           BRANCH: github-pages     # <- Branche sur laquelle seront commités les fichiers
+          FOLDER: /  # <- Dossier contenant notre documentation générée
