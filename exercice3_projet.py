@@ -128,8 +128,10 @@ p.legend.orientation = "horizontal"
 
 div = Div(text="""
 <a href="index.html ">Accueil</a>""")
-
-layout = column(div,p)
+divText = Div(text="""
+              <p>Pour cette dernière visualisation, nous avons recueilli des données depuis la base NYfood qui contient des informations relatives à des restaurants de New-York. Nous souhaitions savoir si les notes attribuées aux restaurants dépendent du quartier dans lesquels ils se trouvent. Ainsi, pour chaque quartier, nous avons récupéré le nombre de fois que chaque note apparaît. Nous n’avons pas pris en compte les quartiers et les notes qui ne sont pas renseignés.
+Nous pouvons en déduire que la différente entre quartiers n’est pas flagrante.</p>""")
+layout = column(div,p, divText)
 
 output_file("exo3_MongoDB.html")
 

@@ -170,7 +170,7 @@ doc1 <- tagList(a(href="index.html", "accueil"), a(href="map_bonus.html", "premi
   br(),
   div(h2("ouverts sur la période du 26 au 29 janvier 2022 "),style = "font-family: sans-serif;text-align:left;text-transform:uppercase;"),
   div(map),
-  div(h3("Voici une carte des centres de vaccination situés à moins de 50km de Rennes. 
+  div(p("Voici une carte des centres de vaccination situés à moins de 50km de Rennes. 
   L’icône associée à chaque centre est de couleur rouge si le nombre de créneaux de vaccination ouverts sur 
   la période du 26 au 29 janvier 2022 est inférieur à 100, orange s'il est entre 100 et 150, et vert s'il est supérieur à 150."),
   style = "font-family: sans-serif;"))
@@ -183,7 +183,7 @@ doc2 <- tagList(a(href="index.html", "accueil"),
   br(),
   div(h2("vaccinations pour première dose sur la période 1er janvier au 1er juin"),style = "font-family: sans-serif;text-align:left;text-transform:uppercase;"),
   div(map_bonus),
-  div(h3("Pour cette seconde carte, nous nous sommes concentrés sur les vaccinations 
+  div(p("Pour cette seconde carte, nous nous sommes concentrés sur les vaccinations 
   pour première dose, sur la période 1er janvier au 1er juin 2022 (les codes couleurs restent identiques)."),
   style = "font-family: sans-serif;")
 )

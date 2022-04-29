@@ -121,7 +121,7 @@ nx.set_node_attributes(g, node_color, 'node_color')
 
 graph_renderer = from_networkx(g, nx.spring_layout, scale=1, center=(0, 0))
 graph_renderer.node_renderer.glyph = Circle(size=15, fill_color='node_color')
-plot = figure(title="Liens entre les 20 auteurs les plus prolifiques", x_range=(-1.1,1.1), y_range=(-1.1,1.1),
+plot = figure(margin=(0,40,0,0),title="Liens entre les 20 auteurs les plus prolifiques", x_range=(-1.1,1.1), y_range=(-1.1,1.1),
               tools="", toolbar_location=None)
 graph_renderer.edge_renderer.data_source.data["line_width"] = [g.get_edge_data(a,b)['weight'] for a, b in g.edges()]
 graph_renderer.edge_renderer.glyph.line_width = {'field': 'line_width'}
@@ -142,7 +142,10 @@ plot.add_tools(node_hover_tool, BoxZoomTool(), ResetTool())
 div = Div(text="""
 <a href="index.html ">Accueil</a>""")
 
-
-layout = column(div,plot)
+divText = Div(text="""
+              <p>Sur cet onglet, nous visualisons les liens entre les auteurs (scientifiques du laboratoire IRISA pour l’année 2021) de publications, en utilisant un code couleur qui permette de distinguer les auteurs par leurs nombres de publications (voir légende) et en représentant les liens (co-publications) existant entre les auteurs. 
+Le nombre d’auteurs présents dans la base étant très grand, nous nous sommes focalisés sur les 20 auteurs les plus prolifiques (i.e. qui ont participé à l’écriture du plus grand nombre d’articles). 
+Nous avons fait en sorte que l’épaisseur des traits joignant les auteurs soit proportionnelle au nombre de publications communes.</p>""", width=500)
+layout = column(div,row(plot, divText))
 output_file("interactive_graphs.html")
 show(layout)
